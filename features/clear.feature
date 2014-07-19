@@ -5,7 +5,7 @@ Feature: A graphical editor should be able to clear an image
     And I type "I56"
     And I type "L23A"
     When I type "C"
-    And I type "exit"
+    And I type "X"
     Then the output should contain:
      """
      OOOOO

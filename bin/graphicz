@@ -30,7 +30,7 @@ loop do
       color(command.row, command.column, command.color)
     when :clear_image
       create($image[0].length, $image.length)
-    else
+    when :quit
       break
     end
 

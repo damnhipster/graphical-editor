@@ -5,7 +5,8 @@ class Command
   @@instructions = {
     new_image: 'I',
     color_pixel: 'L',
-    clear_image: 'C'
+    clear_image: 'C',
+    quit: 'X'
   }
 
   def self.parse(command)

@@ -22,4 +22,9 @@ describe Command do
     expect(command.instruction).to be :clear_image
   end
 
+  it "should parse an exit command" do
+    command = Command.new('X')
+    expect(command.instruction).to be :quit
+  end
+
 end
