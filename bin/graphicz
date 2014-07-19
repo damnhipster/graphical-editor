@@ -1,8 +1,7 @@
 #!/usr/bin/env ruby
 
 require 'highline/import'
-require_relative '../command'
-require_relative '../image'
+Dir[File.expand_path("../../lib/*.rb", __FILE__)].each { |f| require f }
 
 loop do
   begin

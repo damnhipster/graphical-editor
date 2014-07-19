@@ -1,5 +1,3 @@
-require_relative '../command'
-
 describe Command, '.parse' do
 
   it "should parse a create command" do
