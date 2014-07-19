@@ -1,0 +1,39 @@
+#!/usr/bin/env ruby
+
+require 'highline/import'
+
+$image = []
+
+def print_image
+  puts $image.map { |pixels| pixels.join }.join("\n")
+end
+
+def create(width,height)
+  $image = []
+  height.times { $image.push(Array.new(width, 'O')) }
+end
+
+def color(x,y,color)
+  $image[y][x] = color
+end
+
+loop do
+  begin
+    command = ask("Enter a command: ", lambda { |command| command.chars })
+
+    case command[0]
+    when 'I'
+      create(command[1].to_i, command[2].to_i)
+    when 'L'
+      color(command[1].to_i-1, command[2].to_i-1, command[3])
+    else
+      break
+    end
+
+    print_image
+  rescue EOFError
+    break
+  end
+end
+
+exit
