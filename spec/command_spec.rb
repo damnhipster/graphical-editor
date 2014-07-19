@@ -1,6 +1,6 @@
 require_relative '../command'
 
-describe Command do
+describe Command, '#parse' do
 
   it "should parse a create command" do
     command = Command.parse('I 3 2')

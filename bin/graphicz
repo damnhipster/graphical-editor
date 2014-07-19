@@ -2,22 +2,7 @@
 
 require 'highline/import'
 require_relative '../command'
-
-$image = []
-
-def print_image
-  puts $image.map { |pixels| pixels.join }.join("\n")
-end
-
-def create(width,height)
-  $image = []
-  height.times { $image.push(Array.new(width, 'O')) }
-end
-
-def color(x,y,color)
-  $image[y-1][x-1] = color
-end
-
+require_relative '../image'
 
 loop do
   begin
@@ -25,13 +10,13 @@ loop do
 
     case command.instruction
     when :new_image
-      create(command.row, command.column)
+      $image = Image.create(command.row, command.column)
     when :color_pixel
-      color(command.row, command.column, command.color)
+      $image.color(command.row, command.column, command.color)
     when :clear_image
-      create($image[0].length, $image.length)
+      $image.clear
     when :show_image
-      print_image
+      $image.print
     when :quit
       break
     end
