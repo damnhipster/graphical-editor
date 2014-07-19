@@ -22,6 +22,11 @@ describe Command do
     expect(command.instruction).to eq :clear_image
   end
 
+  it "should parse a show command" do
+    command = Command.new(%w[ S ])
+    expect(command.instruction).to eq :show_image
+  end
+
   it "should parse an exit command" do
     command = Command.new(%w[ X ])
     expect(command.instruction).to eq :quit

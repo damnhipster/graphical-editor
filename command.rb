@@ -6,6 +6,7 @@ class Command
     new_image: 'I',
     color_pixel: 'L',
     clear_image: 'C',
+    show_image: 'S',
     quit: 'X'
   }
 

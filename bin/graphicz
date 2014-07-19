@@ -30,11 +30,12 @@ loop do
       color(command.row, command.column, command.color)
     when :clear_image
       create($image[0].length, $image.length)
+    when :show_image
+      print_image
     when :quit
       break
     end
 
-    print_image
   rescue EOFError
     break
   end
