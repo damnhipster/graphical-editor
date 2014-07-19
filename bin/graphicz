@@ -28,6 +28,8 @@ loop do
       create(command.row, command.column)
     when :color_pixel
       color(command.row, command.column, command.color)
+    when :clear_image
+      create($image[0].length, $image.length)
     else
       break
     end
