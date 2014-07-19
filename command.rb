@@ -10,7 +10,7 @@ class Command
   }
 
   def self.parse(command)
-    self.new(command.chars)
+    self.new(command.split(' '))
   end
 
   def initialize(command)

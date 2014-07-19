@@ -3,28 +3,28 @@ require_relative '../command'
 describe Command do
 
   it "should parse a create command" do
-    command = Command.new('I32')
-    expect(command.instruction).to be :new_image
-    expect(command.row).to be 3
-    expect(command.column).to be 2
+    command = Command.new(%w[ I 3 2 ])
+    expect(command.instruction).to eq :new_image
+    expect(command.row).to eq 3
+    expect(command.column).to eq 2
   end
 
   it "should parse a color command" do
-    command = Command.new('L12A')
-    expect(command.instruction).to be :color_pixel
-    expect(command.row).to be 1
-    expect(command.column).to be 2
+    command = Command.new(%w[ L 1 2 A ])
+    expect(command.instruction).to eq :color_pixel
+    expect(command.row).to eq 1
+    expect(command.column).to eq 2
     expect(command.color).to eq 'A'
   end
 
   it "should parse a clear command" do
-    command = Command.new('C')
-    expect(command.instruction).to be :clear_image
+    command = Command.new(%w[ C ])
+    expect(command.instruction).to eq :clear_image
   end
 
   it "should parse an exit command" do
-    command = Command.new('X')
-    expect(command.instruction).to be :quit
+    command = Command.new(%w[ X ])
+    expect(command.instruction).to eq :quit
   end
 
 end
