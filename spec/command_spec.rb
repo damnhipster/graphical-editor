@@ -1,6 +1,6 @@
 require_relative '../command'
 
-describe Command, '#parse' do
+describe Command, '.parse' do
 
   it "should parse a create command" do
     command = Command.parse('I 3 2')
@@ -14,6 +14,15 @@ describe Command, '#parse' do
     expect(command.instruction).to eq :color_pixel
     expect(command.row).to eq 1
     expect(command.column).to eq 2
+    expect(command.color).to eq 'A'
+  end
+
+  it "should parse a vertical line command" do
+    command = Command.parse('V 1 1 2 A')
+    expect(command.instruction).to eq :vertical_line
+    expect(command.column).to eq 1
+    expect(command.from).to eq 1
+    expect(command.to).to eq 2
     expect(command.color).to eq 'A'
   end
 
