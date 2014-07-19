@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
 require 'highline/import'
+require_relative '../command'
 
 $image = []
 
@@ -14,18 +15,19 @@ def create(width,height)
 end
 
 def color(x,y,color)
-  $image[y][x] = color
+  $image[y-1][x-1] = color
 end
+
 
 loop do
   begin
-    command = ask("Enter a command: ", lambda { |command| command.chars })
+    command = ask("Enter a command: ", Command)
 
-    case command[0]
-    when 'I'
-      create(command[1].to_i, command[2].to_i)
-    when 'L'
-      color(command[1].to_i-1, command[2].to_i-1, command[3])
+    case command.instruction
+    when :new_image
+      create(command.row, command.column)
+    when :color_pixel
+      color(command.row, command.column, command.color)
     else
       break
     end
