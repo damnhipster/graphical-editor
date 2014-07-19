@@ -15,6 +15,9 @@ loop do
       $image.color(command.row, command.column, command.color)
     when :vertical_line
       $image.draw_vertical_line(command.column, command.from, command.to, command.color)
+    when :horizontal_line
+      $image.draw_horizontal_line(command.row, command.from, command.to, command.color)
+      puts 'hello'
     when :clear_image
       $image.clear
     when :show_image

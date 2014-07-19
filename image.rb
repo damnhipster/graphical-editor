@@ -12,7 +12,13 @@ class Image
   end
 
   def draw_vertical_line(column,from,to,color)
-    (from..to).each { |row| @image[row-1][column-1] = color }
+    if from<to then range = from..to else range = to..from end
+    range.each { |row| @image[row-1][column-1] = color }
+  end
+
+  def draw_horizontal_line(row,from,to,color)
+    if from<to then range = from..to else range = to..from end
+    range.each { |column| @image[row-1][column-1] = color }
   end
 
   def clear

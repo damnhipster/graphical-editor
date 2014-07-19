@@ -26,6 +26,15 @@ describe Command, '.parse' do
     expect(command.color).to eq 'A'
   end
 
+  it "should parse a horizontal line command" do
+    command = Command.parse('H 2 1 1 A')
+    expect(command.instruction).to eq :horizontal_line
+    expect(command.row).to eq 1
+    expect(command.from).to eq 2
+    expect(command.to).to eq 1
+    expect(command.color).to eq 'A'
+  end
+
   it "should parse a clear command" do
     command = Command.parse('C')
     expect(command.instruction).to eq :clear_image

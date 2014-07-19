@@ -8,6 +8,7 @@ class Command
     clear_image: 'C',
     show_image: 'S',
     vertical_line: 'V',
+    horizontal_line: 'H',
     quit: 'X'
   }
 
@@ -15,11 +16,7 @@ class Command
     command = user_command.split(' ')
     instruction = @@instructions.key(command[0])
     if(instruction.to_s.include?('line'))
-      from = command[2].to_i
-      to = command[3].to_i
-      color = command[4] || 'O'
-      column = command[1].to_i if instruction == :vertical_line
-      self.new(instruction, nil, column, color, from, to)
+      create_line_command(instruction, command)
     else
       row = command[1].to_i
       column = command[2].to_i
@@ -32,6 +29,21 @@ class Command
 
     def initialize(instruction, row, column, color, from, to)
       @instruction, @row, @column, @color, @from, @to = instruction, row, column, color, from, to
+    end
+
+    def self.create_line_command(instruction, command)
+      color = command[4] || 'O'
+      if instruction == :vertical_line
+        from = command[2].to_i
+        to = command[3].to_i
+        column = command[1].to_i
+        self.new(instruction, nil, column, color, from, to)
+      elsif instruction == :horizontal_line
+        from = command[1].to_i
+        to = command[2].to_i
+        row = command[3].to_i
+        self.new(instruction, row, nil, color, from, to)
+      end
     end
 
 end

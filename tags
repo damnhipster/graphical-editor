@@ -1,0 +1,18 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+Command	command.rb	/^class Command$/;"	c
+Image	image.rb	/^class Image$/;"	c
+clear	image.rb	/^  def clear$/;"	f	class:Image
+color	image.rb	/^  def color(x,y,color)$/;"	f	class:Image
+create	image.rb	/^  def self.create(width, height)$/;"	F	class:Image
+create_line_command	command.rb	/^    def self.create_line_command(instruction, command)$/;"	F	class:Command
+draw_horizontal_line	image.rb	/^  def draw_horizontal_line(row,from,to,color)$/;"	f	class:Image
+draw_vertical_line	image.rb	/^  def draw_vertical_line(column,from,to,color)$/;"	f	class:Image
+initialize	command.rb	/^    def initialize(instruction, row, column, color, from, to)$/;"	f	class:Command
+initialize	image.rb	/^    def initialize(width, height)$/;"	f	class:Image
+parse	command.rb	/^  def self.parse(user_command)$/;"	F	class:Command
+print	image.rb	/^  def print$/;"	f	class:Image
